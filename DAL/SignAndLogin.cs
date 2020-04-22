@@ -44,24 +44,5 @@ namespace DAL
             string pwd = EncryptionHelper.Sha1(u.Upwd);//Sha1加密密码
             return DapperHelper.NonQuery($"select count(1) from Users where Uname= '{u.Uname}' and Upwd='{pwd}'", null);
         }
-
-        /// <summary>
-        /// 查询车辆品牌信息用于绑定下拉
-        /// </summary>
-        /// <returns></returns>
-        public List<Brand> GetBrands()
-        {
-            return DapperHelper.Query<Brand>("select * from Brand", null);
-        }
-
-        /// <summary>
-        /// 查询车辆型号信息用于绑定下拉
-        /// </summary>
-        /// <returns></returns>
-        public List<Brand> GetBrands(int bid)
-        {
-            return DapperHelper.Query<Brand>($"select * from Type where Tbid={bid}", null);
-        }
-
     }
 }

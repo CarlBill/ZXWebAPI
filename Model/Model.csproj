@@ -46,7 +46,7 @@
     <Compile Include="Brand.cs" />
     <Compile Include="RepayMent.cs" />
     <Compile Include="Roles.cs" />
-    <Compile Include="Type.cs" />
+    <Compile Include="Types.cs" />
     <Compile Include="UserRole.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

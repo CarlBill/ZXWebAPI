@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Type
+    public class Types
     {
         public int Tid { get; set; }
         public string Tname { get; set; }
