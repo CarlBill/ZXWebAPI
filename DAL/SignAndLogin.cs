@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Model;
+﻿using Model;
 using PublicClass;
 
 namespace DAL
@@ -24,9 +19,9 @@ namespace DAL
             }
             if (DapperHelper.NonQuery($"select count(1) from Users where Utel= '{u.Utel}'", null) > 0)
             {
-                i+= 5;
+                i += 5;
             }
-            if (i<0)
+            if (i < 0)
             {
                 string pwd = EncryptionHelper.Sha1(u.Upwd);//Sha1加密密码
                 i = DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE())", null);
@@ -42,7 +37,7 @@ namespace DAL
         public int Login(Users u)
         {
             string pwd = EncryptionHelper.Sha1(u.Upwd);//Sha1加密密码
-            return DapperHelper.NonQuery($"select count(1) from Users where Uname= '{u.Uname}' and Upwd='{pwd}'", null);
+            return DapperHelper.NonQuery($"select COUNT(1) from Users join UserRole on Users.Uid =UserRole.Uid join Roles on  Roles.Rid=UserRole.Rid  where Uname= '{u.Uname}' and Upwd='{pwd}'", null);
         }
     }
 }
