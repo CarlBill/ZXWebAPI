@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Model;
+using PublicClass;
 
-namespace BLL
+namespace DAL
 {
-    public class UserReimbursement
+    public class ComplianceAudit
     {
-        DAL.UserReimbursement userReimbursement = new DAL.UserReimbursement();
         /// <summary>
-        /// 用户还款
+        /// 合规审核
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int UpdateState(int id)
+        public int UptState(int id)
         {
-            return userReimbursement.UpdateState(id);
+            string sql = "update VehicleInfo set Czt = 2 where Cuid =" + id;
+            return DapperHelper.NonQuery(sql,null);
         }
     }
 }
