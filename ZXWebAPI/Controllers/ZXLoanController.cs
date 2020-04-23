@@ -48,6 +48,8 @@ namespace ZXWebAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public int UpdateState(int id)
         {
             return userReimbursement.UpdateState(id);
