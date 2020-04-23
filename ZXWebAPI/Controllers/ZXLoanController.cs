@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Bll;
 using BLL;
 using Model;
 
@@ -63,7 +62,7 @@ namespace ZXWebAPI.Controllers
         /// <summary>
         /// 合规审核
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">对应的用户id</param>
         /// <returns></returns>
         [HttpPost]
         public int UptState(int id)
@@ -74,7 +73,7 @@ namespace ZXWebAPI.Controllers
         /// <summary>
         /// 用户还款
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">对应的用户id</param>
         /// <returns></returns>
         /// 
         [HttpPost]

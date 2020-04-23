@@ -12,7 +12,7 @@ namespace BLL
         /// <summary>
         /// 用户还款
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">对应的用户id</param>
         /// <returns></returns>
         public int UpdateState(int id)
         {
