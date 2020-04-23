@@ -14,6 +14,7 @@ namespace ZXWebAPI.Controllers
     {
         BrandAndTypes brand = new BrandAndTypes();
         SignAndLogin sal = new SignAndLogin();
+        ComplianceAudit complianceAudit = new ComplianceAudit();
         UserReimbursement userReimbursement = new UserReimbursement();
 
         /// <summary>
@@ -32,14 +33,24 @@ namespace ZXWebAPI.Controllers
         }
 
         /// <summary>
-        /// 用户还款
+        /// 合规审核
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost]
         public int UptState(int id)
         {
-            return userReimbursement.UptState(id);
+            return complianceAudit.UptState(id);
+        }
+
+        /// <summary>
+        /// 用户还款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int UpdateState(int id)
+        {
+            return userReimbursement.UpdateState(id);
         }
     }
 }
