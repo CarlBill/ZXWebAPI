@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Dapper;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Configuration;
-using Dapper;
 
 namespace PublicClass
 {
@@ -19,7 +18,7 @@ namespace PublicClass
         private static SqlConnection OpenConnection()
         {
 
-            SqlConnection connection = new SqlConnection(sqlconnection);  
+            SqlConnection connection = new SqlConnection(sqlconnection);
             connection.Open();
             return connection;
         }
