@@ -5,6 +5,7 @@ namespace Model
     public class VehicleInfo
     {
         public int Cid { get; set; }
+        public string Cimg { get; set; }
         public int Cuid { get; set; }
         public int Cbrand { get; set; }
         public int Ctype { get; set; }
@@ -15,5 +16,6 @@ namespace Model
         public DateTime Ctime { get; set; }
         public int Czt { get; set; }
         public int Cqx { get; set; }
+        public int Cbj { get; set; }
     }
 }

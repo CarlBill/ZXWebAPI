@@ -18,7 +18,30 @@ namespace ZXWebAPI.Controllers
         UserReimbursement userReimbursement = new UserReimbursement();
 
         /// <summary>
-        /// 获取汽车型号
+        /// 注册
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int Sign(Users u)
+        {
+            return sal.Sign(u);
+        }
+
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int Login(Users u)
+        {
+            return sal.Login(u);
+        }
+
+
+        /// <summary>
+        /// 获取汽车品牌
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -26,7 +49,12 @@ namespace ZXWebAPI.Controllers
         {
             return brand.GetBrands();
         }
-
+        /// <summary>
+        /// 获取汽车型号
+        /// </summary>
+        /// <param name="bid"></param>
+        /// <returns></returns>
+        [HttpGet]
         public List<Types> GetTypes(int bid)
         {
             return brand.GetType(bid);

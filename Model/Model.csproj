@@ -50,6 +50,7 @@
     <Compile Include="UserRole.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UVehicleInfo.cs" />
     <Compile Include="VehicleInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

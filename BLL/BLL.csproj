@@ -46,6 +46,7 @@
     <Compile Include="SignAndLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserReimbursement.cs" />
+    <Compile Include="VehicleBll.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
