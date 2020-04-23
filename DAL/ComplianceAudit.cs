@@ -13,7 +13,7 @@ namespace DAL
         /// <summary>
         /// 合规审核
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">对应的用户id</param>
         /// <returns></returns>
         public int UptState(int id)
         {
