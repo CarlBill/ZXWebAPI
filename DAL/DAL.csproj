@@ -45,7 +45,6 @@
     <Compile Include="ComplianceAudit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignAndLogin.cs" />
-    <Compile Include="SMS Alerts.cs" />
     <Compile Include="UserReimbursement.cs" />
   </ItemGroup>
   <ItemGroup>
