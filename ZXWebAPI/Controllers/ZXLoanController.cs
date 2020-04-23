@@ -1,38 +1,20 @@
-﻿using BLL;
-using Model;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
+using Bll;
+using BLL;
+using Model;
 
 namespace ZXWebAPI.Controllers
 {
     public class ZXLoanController : ApiController
     {
-
         BrandAndTypes brand = new BrandAndTypes();
         SignAndLogin sal = new SignAndLogin();
-
-        /// <summary>
-        /// 注册
-        /// </summary>
-        /// <param name="u"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public int Sign(Users u)
-        {
-            return sal.Sign(u);
-        }
-
-        /// <summary>
-        /// 登录
-        /// </summary>
-        /// <param name="u"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public int Login(Users u)
-        {
-            return sal.Login(u);
-        }
-
+        UserReimbursement userReimbursement = new UserReimbursement();
 
         /// <summary>
         /// 获取汽车型号
@@ -44,10 +26,20 @@ namespace ZXWebAPI.Controllers
             return brand.GetBrands();
         }
 
-        [HttpGet]
         public List<Types> GetTypes(int bid)
         {
             return brand.GetType(bid);
+        }
+
+        /// <summary>
+        /// 用户还款
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int UptState(int id)
+        {
+            return userReimbursement.UptState(id);
         }
     }
 }
