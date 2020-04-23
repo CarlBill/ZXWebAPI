@@ -1,4 +1,4 @@
-﻿namespace Bll
+﻿namespace BLL
 {
     public class ComplianceAudit
     {
