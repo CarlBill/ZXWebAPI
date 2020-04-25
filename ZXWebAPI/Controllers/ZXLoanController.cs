@@ -15,6 +15,7 @@ namespace ZXWebAPI.Controllers
         SignAndLogin sal = new SignAndLogin();
         ComplianceAudit complianceAudit = new ComplianceAudit();
         UserReimbursement userReimbursement = new UserReimbursement();
+        SMSVerificationCode sMSVerificationCode = new SMSVerificationCode();
 
         /// <summary>
         /// 注册
@@ -80,6 +81,17 @@ namespace ZXWebAPI.Controllers
         public int UpdateState(int id)
         {
             return userReimbursement.UpdateState(id);
+        }
+
+        /// <summary>
+        /// 短信验证码
+        /// </summary>
+        /// <param name="mobile">手机号</param>
+        /// <returns></returns>
+        [HttpPost]
+        public int GetPost(string mobile)
+        {
+            return sMSVerificationCode.GetPost(mobile);
         }
     }
 }
