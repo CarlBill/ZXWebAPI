@@ -5,27 +5,38 @@ namespace DAL
 {
     public class SignAndLogin
     {
+
         /// <summary>
-        /// 注册(判断用户名和手机号是否注册过)
+        /// 用户名判重
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public int ComName(string name)
+        {
+            int i=DapperHelper.NonQuery($"select count(1) from Users where Uname= '{name}'", null);
+            return i;
+        }
+
+        /// <summary>
+        /// 手机号判重
+        /// </summary>
+        /// <param name="tel"></param>
+        /// <returns></returns>
+        public int Ctel(string tel)
+        {
+            return DapperHelper.NonQuery($"select count(1) from Users where Utel= '{tel}'", null);
+        }
+
+        /// <summary>
+        /// 注册
         /// </summary>
         /// <param name="u"></param>
         /// <returns></returns>
         public int Sign(Users u)
         {
-            int i = 0;
-            if (DapperHelper.NonQuery($"select count(1) from Users where Uname= '{u.Uname}'", null) > 0)
-            {
-                i += 3;
-            }
-            if (DapperHelper.NonQuery($"select count(1) from Users where Utel= '{u.Utel}'", null) > 0)
-            {
-                i += 5;
-            }
-            if (i < 0)
-            {
+             
                 string pwd = EncryptionHelper.Sha1(u.Upwd);//Sha1加密密码
-                i = DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE())", null);
-            }
+                int i = DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE())", null);
             return i;
         }
 
@@ -37,7 +48,8 @@ namespace DAL
         public int Login(Users u)
         {
             string pwd = EncryptionHelper.Sha1(u.Upwd);//Sha1加密密码
-            return DapperHelper.NonQuery($"select COUNT(1) from Users join UserRole on Users.Uid =UserRole.Uid join Roles on  Roles.Rid=UserRole.Rid  where Uname= '{u.Uname}' and Upwd='{pwd}'", null);
+            string sql = $"select COUNT(1) from Users join UserRole on Users.Uid =UserRole.Uid join Roles on  Roles.Rid=UserRole.Rid  where Uname= '{u.Uname}' and Upwd='{pwd}'";
+            return DapperHelper.Exists(sql,null);
         }
     }
 }

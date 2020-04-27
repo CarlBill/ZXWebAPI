@@ -17,6 +17,26 @@ namespace ZXWebAPI.Controllers
         UserReimbursement userReimbursement = new UserReimbursement();
         SMSVerificationCode sMSVerificationCode = new SMSVerificationCode();
 
+        /// 用户名判重
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public int ComName(string name)
+        {
+            return sal.ComName(name);
+        }
+
+        /// <summary>
+        /// 手机号判重
+        /// </summary>
+        /// <param name="tel"></param>
+        /// <returns></returns>
+        public int Ctel(string tel)
+        {
+            return sal.Ctel(tel);
+        }
+
+
         /// <summary>
         /// 注册
         /// </summary>

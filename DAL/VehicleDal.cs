@@ -28,5 +28,6 @@ namespace DAL
         {
             return DapperHelper.NonQuery<VehicleInfo>($"Insert into VehicleInfo(Cid,Cimg,Cuid,Cbrand,Ctype,Cvin,Cyear,Ckm,Csf,Ctime,Czt,Cqx,Cbj) values('{vehicle.Cid}','{vehicle.Cimg}','{vehicle.Cuid}','{vehicle.Cbrand}','{vehicle.Ctype}','{vehicle.Cvin}','{vehicle.Cyear}','{vehicle.Ckm}','{vehicle.Csf}','{vehicle.Ctime}','{vehicle.Czt}','{vehicle.Cqx}','{vehicle.Cbj}')", null);
         }
+
     }
 }

@@ -117,5 +117,21 @@ namespace PublicClass
         }
         #endregion
 
+
+        /// <summary>
+        /// 执行是否存在数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sqlStr">查询（例：SELECT COUNT(1)  FROM XXX ）</param>
+        /// <param name="param">匿名类型</param>
+        /// <returns></returns>
+        public static int Exists(string sqlStr, object param)
+        {
+            using (IDbConnection conn = OpenConnection())
+            {
+                int count = conn.Query<int>(sqlStr, param).FirstOrDefault();
+                return count;
+            }
+        }
     }
 }
