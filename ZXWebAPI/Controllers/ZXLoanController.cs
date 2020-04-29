@@ -16,11 +16,14 @@ namespace ZXWebAPI.Controllers
         ComplianceAudit complianceAudit = new ComplianceAudit();
         UserReimbursement userReimbursement = new UserReimbursement();
         SMSVerificationCode sMSVerificationCode = new SMSVerificationCode();
+        UserRoleControlBll bll = new UserRoleControlBll();
+
 
         /// 用户名判重
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
+        [HttpPost]
         public int ComName(string name)
         {
             return sal.ComName(name);
@@ -31,6 +34,7 @@ namespace ZXWebAPI.Controllers
         /// </summary>
         /// <param name="tel"></param>
         /// <returns></returns>
+        [HttpPost]
         public int Ctel(string tel)
         {
             return sal.Ctel(tel);
@@ -49,7 +53,7 @@ namespace ZXWebAPI.Controllers
         }
 
         /// <summary>
-        /// 登录
+        /// 登录+判断角色
         /// </summary>
         /// <param name="u"></param>
         /// <returns></returns>
@@ -112,6 +116,28 @@ namespace ZXWebAPI.Controllers
         public int GetPost(string mobile)
         {
             return sMSVerificationCode.GetPost(mobile);
+        }
+
+
+
+        /// <summary>
+        /// 显示审核员
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public List<Users> GetShen(string name, string tname)
+        {
+            return bll.GetShen(name, tname);
+        }
+
+        /// <summary>
+        /// 显示客户
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public List<Users> GetUser(string name, string tname)
+        {
+            return bll.GetUser(name, tname);
         }
     }
 }

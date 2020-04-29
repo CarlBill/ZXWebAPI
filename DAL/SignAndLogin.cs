@@ -13,7 +13,7 @@ namespace DAL
         /// <returns></returns>
         public int ComName(string name)
         {
-            int i=DapperHelper.NonQuery($"select count(1) from Users where Uname= '{name}'", null);
+            int i=DapperHelper.Exists($"select count(1) from Users where Uname= '{name}'", null);
             return i;
         }
 
@@ -24,7 +24,7 @@ namespace DAL
         /// <returns></returns>
         public int Ctel(string tel)
         {
-            return DapperHelper.NonQuery($"select count(1) from Users where Utel= '{tel}'", null);
+            return DapperHelper.Exists($"select count(1) from Users where Utel= '{tel}'", null);
         }
 
         /// <summary>
@@ -41,15 +41,16 @@ namespace DAL
         }
 
         /// <summary>
-        /// 登录
+        /// 登录+判断角色
         /// </summary>
         /// <param name="u"></param>
         /// <returns></returns>
         public int Login(Users u)
         {
             string pwd = EncryptionHelper.Sha1(u.Upwd);//Sha1加密密码
-            string sql = $"select COUNT(1) from Users join UserRole on Users.Uid =UserRole.Uid join Roles on  Roles.Rid=UserRole.Rid  where Uname= '{u.Uname}' and Upwd='{pwd}'";
+            string sql = $"select UserRole.Rid from Users join UserRole on Users.Uid =UserRole.Uid join Roles on  Roles.Rid=UserRole.Rid  where Uname= '{u.Uname}' and Upwd='{pwd}'";
             return DapperHelper.Exists(sql,null);
         }
+
     }
 }

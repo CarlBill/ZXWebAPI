@@ -11,5 +11,6 @@ namespace Model
         public string Utel { get; set; }
         public int Uxy { get; set; }
         public DateTime Utime { get; set; }
+        public int RowID { get; set; }
     }
 }

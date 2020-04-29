@@ -37,7 +37,7 @@ namespace BLL
         }
 
         /// <summary>
-        /// 登录
+        /// 登录+判断角色
         /// </summary>
         /// <param name="u"></param>
         /// <returns></returns>

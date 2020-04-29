@@ -49,6 +49,7 @@
     <Compile Include="SignAndLogin.cs" />
     <Compile Include="SMSVerificationCode.cs" />
     <Compile Include="UserReimbursement.cs" />
+    <Compile Include="UserRoleControlDal.cs" />
     <Compile Include="VehicleDal.cs" />
   </ItemGroup>
   <ItemGroup>
