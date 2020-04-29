@@ -17,6 +17,7 @@ namespace ZXWebAPI.Controllers
         UserReimbursement userReimbursement = new UserReimbursement();
         SMSVerificationCode sMSVerificationCode = new SMSVerificationCode();
         UserRoleControlBll bll = new UserRoleControlBll();
+        InstrumentTray instrumentTray = new InstrumentTray();
 
 
         /// 用户名判重
@@ -138,6 +139,36 @@ namespace ZXWebAPI.Controllers
         public List<Users> GetUser(string name, string tname)
         {
             return bll.GetUser(name, tname);
+        }
+
+        /// <summary>
+        /// 用户数量
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public int PostUserValue()
+        {
+            return instrumentTray.PostUserValue();
+        }
+        /// <summary>
+        /// 成交量
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public int PostCjCount()
+        {
+            return instrumentTray.PostCjCount();
+        }
+        /// <summary>
+        /// 成交额
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public int PostCjMoney()
+        {
+            return instrumentTray.PostCjMoney();
         }
     }
 }
