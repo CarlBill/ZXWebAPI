@@ -52,5 +52,9 @@ namespace DAL
             return DapperHelper.Exists(sql,null);
         }
 
+        public int  UptRole(int id)
+        {
+            return DapperHelper.NonQuery("",null);
+        }
     }
 }
