@@ -29,5 +29,25 @@ namespace BLL
         {
             return VehicleDal.VechcleAdd(vehicle);
         }
+
+        /// <summary>
+        /// 车辆信息删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int DelVehicleInfos(string id)
+        {
+            return VehicleDal.DelVehicleInfos(id);
+        }
+
+        /// <summary>
+        /// 车辆信息详情
+        /// </summary>
+        /// <returns></returns>
+
+        public UVehicleInfo GetVehicleInfoById(int cid)
+        {
+            return VehicleDal.GetVehicleInfoById(cid);
+        }
     }
 }

@@ -32,5 +32,29 @@ namespace ZXWebAPI.Controllers
         {
             return VehicleBll.VechcleAdd(vehicle);
         }
+
+        /// <summary>
+        /// 车辆信息删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// 
+        [HttpPost]
+        public int DelVehicleInfos(string id)
+        {
+            return VehicleBll.DelVehicleInfos(id);
+        }
+
+        /// <summary>
+        /// 车辆信息详情
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+
+        public UVehicleInfo GetVehicleInfoById(int cid)
+        {
+            return VehicleBll.GetVehicleInfoById(cid);
+        }
     }
 }

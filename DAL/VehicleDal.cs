@@ -29,5 +29,24 @@ namespace DAL
             return DapperHelper.NonQuery<VehicleInfo>($"Insert into VehicleInfo(Cid,Cimg,Cuid,Cbrand,Ctype,Cvin,Cyear,Ckm,Csf,Ctime,Czt,Cqx,Cbj) values('{vehicle.Cid}','{vehicle.Cimg}','{vehicle.Cuid}','{vehicle.Cbrand}','{vehicle.Ctype}','{vehicle.Cvin}','{vehicle.Cyear}','{vehicle.Ckm}','{vehicle.Csf}','{vehicle.Ctime}','{vehicle.Czt}','{vehicle.Cqx}','{vehicle.Cbj}')", null);
         }
 
+        /// <summary>
+        /// 车辆信息删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int DelVehicleInfos(string id)
+        {
+            return DapperHelper.NonQuery($"delete from VehicleInfo where Cid in ({id})", null);
+        }
+
+        /// <summary>
+        /// 车辆信息详情
+        /// </summary>
+        /// <returns></returns>
+
+        public UVehicleInfo GetVehicleInfoById(int cid)
+        {
+            return DapperHelper.Query<UVehicleInfo>($"select * from VehicleInfo join Users on Uid = Cuid join RepayMent on Cid = Pcid  and Puid = Users.Uid join Brand on Bid = Cbrand join Type on Tid = Ctype where Cid ={ cid}", null).FirstOrDefault();
+        }
     }
 }
