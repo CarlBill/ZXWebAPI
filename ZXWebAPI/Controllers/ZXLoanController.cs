@@ -141,6 +141,18 @@ namespace ZXWebAPI.Controllers
             return bll.GetUser(name, tname);
         }
 
+        
+        /// <summary>
+        /// 取消审核员身份
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int CancelShen(int uid)
+        {
+            return bll.CancelShen(uid);
+        }
+
         /// <summary>
         /// 用户数量
         /// </summary>

@@ -27,5 +27,15 @@ namespace DAL
         {
             return DapperHelper.Query<Users>($"select * from GetUser  where Uname like '%{name}%' and Utname like '%{tname}%'", null);
         }
+
+        /// <summary>
+        /// 取消审核员身份
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        public int CancelShen(int uid)
+        {
+            return DapperHelper.NonQuery("update UserRole set Rid= 3 where Uid="+uid,null);
+        }
     }
 }

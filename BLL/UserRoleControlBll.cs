@@ -29,5 +29,15 @@ namespace BLL
         {
             return dal.GetUser(name,tname);
         }
+
+        /// <summary>
+        /// 取消审核员身份
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
+        public int CancelShen(int uid)
+        {
+            return dal.CancelShen(uid);
+        }
     }
 }
