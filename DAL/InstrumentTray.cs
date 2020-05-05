@@ -25,7 +25,7 @@ namespace DAL
         /// <returns></returns>
         public int PostCjCount()
         {
-            string sql = "select count(*) from RepayMent join VehicleInfo on VehicleInfo.Cid=RepayMent.Pcid";
+            string sql = "select count(*) from VehicleInfo where Czt != 1";
             return Convert.ToInt32(SqlDbHelper.ExecuteScalar(sql));
         }
         /// <summary>

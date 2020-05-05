@@ -19,6 +19,27 @@ namespace DAL
             return DapperHelper.Query<UVehicleInfo>("select * from VehicleInfo join Users on Uid=Cuid join RepayMent on Cid=Pcid  and Puid=Users.Uid join Brand on Bid=Cbrand join Type on Tid =Ctype", null);
         }
 
+
+        /// <summary>
+        /// 贷款信息根据审核员名进行过滤显示
+        /// </summary>
+        /// <returns></returns>
+
+        public List<UVehicleInfo> GetVehicleInfosFilterByName(string name)
+        {
+            return DapperHelper.Query<UVehicleInfo>($"select * from VehicleInfo join Users on Uid=Cuid join RepayMent on Cid=Pcid  and Puid=Users.Uid join Brand on Bid=Cbrand join Type on Tid =Ctype where Uname = '{name}' and Czt = 2", null);
+        }
+
+        /// <summary>
+        /// 贷款信息显示根据未审核进行过滤显示
+        /// </summary>
+        /// <returns></returns>
+
+        public List<UVehicleInfo> GetVehicleInfosFilterByState()
+        {
+            return DapperHelper.Query<UVehicleInfo>($"select * from VehicleInfo join Users on Uid=Cuid join RepayMent on Cid=Pcid  and Puid=Users.Uid join Brand on Bid=Cbrand join Type on Tid =Ctype where Czt = 1", null);
+        }
+
         /// <summary>
         /// 车辆信息添加
         /// </summary>

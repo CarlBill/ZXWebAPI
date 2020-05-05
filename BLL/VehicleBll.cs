@@ -21,6 +21,26 @@ namespace BLL
         }
 
         /// <summary>
+        /// 贷款信息根据审核员名进行过滤显示
+        /// </summary>
+        /// <returns></returns>
+
+        public List<UVehicleInfo> GetVehicleInfosFilterByName(string name)
+        {
+            return VehicleDal.GetVehicleInfosFilterByName(name);
+
+        }
+        /// <summary>
+        /// 贷款信息显示根据待审核进行过滤显示
+        /// </summary>
+        /// <returns></returns>
+
+        public List<UVehicleInfo> GetVehicleInfosFilterByState()
+        {
+            return VehicleDal.GetVehicleInfosFilterByState();
+        }
+
+        /// <summary>
         /// 车辆信息添加
         /// </summary>
         /// <param name="vehicle"></param>
