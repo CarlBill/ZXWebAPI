@@ -41,13 +41,13 @@ namespace DAL
         }
 
         /// <summary>
-        /// 车辆信息添加
+        /// 车辆信息提交并申请贷款
         /// </summary>
         /// <param name="vehicle"></param>
         /// <returns></returns>
         public int VechcleAdd(VehicleInfo vehicle)
         {
-            return DapperHelper.NonQuery<VehicleInfo>($"Insert into VehicleInfo(Cid,Cimg,Cuid,Cbrand,Ctype,Cvin,Cyear,Ckm,Csf,Ctime,Czt,Cqx,Cbj) values('{vehicle.Cid}','{vehicle.Cimg}','{vehicle.Cuid}','{vehicle.Cbrand}','{vehicle.Ctype}','{vehicle.Cvin}','{vehicle.Cyear}','{vehicle.Ckm}','{vehicle.Csf}','{vehicle.Ctime}','{vehicle.Czt}','{vehicle.Cqx}','{vehicle.Cbj}')", null);
+            return DapperHelper.NonQuery<VehicleInfo>($"Insert into VehicleInfo(Cid,Cimg,Cuid,Cbrand,Ctype,Cvin,Cyear,Ckm,Csf,Ctime,Czt,Cqx,Cbj) values('{vehicle.Cid}','{vehicle.Cimg}','{vehicle.Cuid}','{vehicle.Cbrand}','{vehicle.Ctype}','{vehicle.Cvin}','{vehicle.Cyear}','{vehicle.Ckm}','{vehicle.Csf}','{DateTime.Now}',1,'{vehicle.Cqx}','{vehicle.Cbj}')", null);
         }
 
         /// <summary>
