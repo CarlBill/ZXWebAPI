@@ -34,11 +34,26 @@ namespace DAL
         /// <returns></returns>
         public int Sign(Users u)
         {
-             
                 string pwd = EncryptionHelper.Sha1(u.Upwd);//Sha1加密密码
                 int i = DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE())", null);
             return i;
         }
+
+        /// <summary>
+        /// 添加审核员
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public int AddShen(Users u)
+        {
+            string p = "zx123456";
+            string pwd = EncryptionHelper.Sha1(p);//Sha1加密密码
+            DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE())", null);
+            int n= DapperHelper.Exists($"select Uid from Users where Uname = '{u.Uname}'", null);
+            int a= DapperHelper.NonQuery("update UserRole set Rid= 3 where Uid=" + n, null);
+            return a;
+        }
+
 
         /// <summary>
         /// 登录+判断角色

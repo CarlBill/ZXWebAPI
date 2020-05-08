@@ -45,5 +45,15 @@ namespace BLL
         {
             return SAndL.Login(u);
         }
+
+        /// <summary>
+        /// 添加审核员
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public int AddShen(Users u)
+        {
+            return SAndL.AddShen(u);
+        }
     }
 }

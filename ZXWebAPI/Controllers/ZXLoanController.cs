@@ -182,5 +182,17 @@ namespace ZXWebAPI.Controllers
         {
             return instrumentTray.PostCjMoney();
         }
+
+
+        /// <summary>
+        /// 添加审核员
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int AddShen(Users u)
+        {
+            return sal.AddShen(u);
+        }
     }
 }
