@@ -50,7 +50,7 @@ namespace DAL
             string pwd = EncryptionHelper.Sha1(p);//Sha1加密密码
             DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE())", null);
             int n= DapperHelper.Exists($"select Uid from Users where Uname = '{u.Uname}'", null);
-            int a= DapperHelper.NonQuery("update UserRole set Rid= 3 where Uid=" + n, null);
+            int a= DapperHelper.NonQuery("update UserRole set Rid= 2 where Uid=" + n, null);
             return a;
         }
 
