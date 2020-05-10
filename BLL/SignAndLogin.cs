@@ -1,4 +1,5 @@
 ﻿using Model;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -54,6 +55,15 @@ namespace BLL
         public int AddShen(Users u)
         {
             return SAndL.AddShen(u);
+        }
+
+        /// <summary>
+        /// 绑定等级下拉
+        /// </summary>
+        /// <returns></returns>
+        public List<ShenLevel> GetLevel()
+        {
+            return SAndL.GetLevel();
         }
     }
 }

@@ -194,5 +194,16 @@ namespace ZXWebAPI.Controllers
         {
             return sal.AddShen(u);
         }
+
+
+        /// <summary>
+        /// 绑定等级下拉
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public List<ShenLevel> GetLevel()
+        {
+            return sal.GetLevel();
+        }
     }
 }

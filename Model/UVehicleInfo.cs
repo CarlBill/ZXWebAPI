@@ -66,5 +66,7 @@ namespace Model
         public int Czt { get; set; }
         public int Cqx { get; set; }
         public int Cbj { get; set; }
+        public int Sid { get; set; }
+        public string Sname { get; set; }
     }
 }

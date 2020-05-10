@@ -1,5 +1,6 @@
 ﻿using Model;
 using PublicClass;
+using System.Collections.Generic;
 
 namespace DAL
 {
@@ -35,7 +36,7 @@ namespace DAL
         public int Sign(Users u)
         {
                 string pwd = EncryptionHelper.Sha1(u.Upwd);//Sha1加密密码
-                int i = DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE())", null);
+                int i = DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE(),'{null}')", null);
             return i;
         }
 
@@ -48,7 +49,7 @@ namespace DAL
         {
             string p = "zx123456";
             string pwd = EncryptionHelper.Sha1(p);//Sha1加密密码
-            DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE())", null);
+            DapperHelper.NonQuery($"insert into Users values('{u.Uname}','{u.Utname}','{pwd}','{u.Utel}',80,GETDATE(),'{u.Ulevel}')", null);
             int n= DapperHelper.Exists($"select Uid from Users where Uname = '{u.Uname}'", null);
             int a= DapperHelper.NonQuery("update UserRole set Rid= 2 where Uid=" + n, null);
             return a;
@@ -67,9 +68,14 @@ namespace DAL
             return DapperHelper.Exists(sql,null);
         }
 
-        public int  UptRole(int id)
+
+        /// <summary>
+        /// 绑定等级下拉
+        /// </summary>
+        /// <returns></returns>
+        public List<ShenLevel> GetLevel()
         {
-            return DapperHelper.NonQuery("",null);
+            return DapperHelper.Query<ShenLevel>("select  * from slevel", null);
         }
     }
 }

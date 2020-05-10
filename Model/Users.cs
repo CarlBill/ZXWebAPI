@@ -12,5 +12,6 @@ namespace Model
         public int Uxy { get; set; }
         public DateTime Utime { get; set; }
         public int RowID { get; set; }
+        public int Ulevel { get; set; }
     }
 }
