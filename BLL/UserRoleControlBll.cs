@@ -16,18 +16,36 @@ namespace BLL
         /// 显示审核员
         /// </summary>
         /// <returns></returns>
-        public List<Users> GetShen(string name, string tname)
+        public List<Users> GetShen()
         {
-            return dal.GetShen(name,tname);
+            return dal.GetShen();
         }
 
         /// <summary>
         /// 显示客户
         /// </summary>
         /// <returns></returns>
-        public List<Users> GetUser(string name, string tname)
+        public List<Users> GetUser()
         {
-            return dal.GetUser(name,tname);
+            return dal.GetUser();
+        }
+
+        /// <summary>
+        /// 查询审核员
+        /// </summary>
+        /// <returns></returns>
+        public List<Users> GetShenSearch(Users u)
+        {
+            return dal.GetShenSearch(u);
+        }
+
+        /// <summary>
+        /// 查询客户
+        /// </summary>
+        /// <returns></returns>
+        public List<Users> GetUserSearch(Users u)
+        {
+            return dal.GetUserSearch(u);
         }
 
         /// <summary>

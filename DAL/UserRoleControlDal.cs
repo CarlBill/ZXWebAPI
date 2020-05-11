@@ -14,18 +14,37 @@ namespace DAL
         /// 显示审核员
         /// </summary>
         /// <returns></returns>
-        public List<Users> GetShen(string name,string tname)
+        public List<Users> GetShen()
         {
-            return DapperHelper.Query<Users>($"select * from GetShen where Uname like '%{name}%' and Utname like '%{tname}%'", null);
+            return DapperHelper.Query<Users>($"select * from GetShen", null);
         }
 
         /// <summary>
         /// 显示客户
         /// </summary>
         /// <returns></returns>
-        public List<Users> GetUser(string name, string tname)
+        public List<Users> GetUser()
         {
-            return DapperHelper.Query<Users>($"select * from GetUser  where Uname like '%{name}%' and Utname like '%{tname}%'", null);
+            return DapperHelper.Query<Users>($"select * from GetUser", null);
+        }
+
+
+        /// <summary>
+        /// 查询审核员
+        /// </summary>
+        /// <returns></returns>
+        public List<Users> GetShenSearch(Users u)
+        {
+            return DapperHelper.Query<Users>($"select * from GetShen where Uname like '%{u.Uname}%' and Utname like '%{u.Utname}%'", null);
+        }
+
+        /// <summary>
+        /// 查询客户
+        /// </summary>
+        /// <returns></returns>
+        public List<Users> GetUserSearch(Users u)
+        {
+            return DapperHelper.Query<Users>($"select * from GetUser  where Uname like '%{u.Uname}%' and Utname like '%{u.Utname}%'", null);
         }
 
         /// <summary>

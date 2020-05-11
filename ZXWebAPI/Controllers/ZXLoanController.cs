@@ -125,20 +125,20 @@ namespace ZXWebAPI.Controllers
         /// 显示审核员
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
-        public List<Users> GetShen(string name, string tname)
+        [HttpGet]
+        public List<Users> GetShen()
         {
-            return bll.GetShen(name, tname);
+            return bll.GetShen();
         }
 
         /// <summary>
         /// 显示客户
         /// </summary>
         /// <returns></returns>
-        [HttpPost]
-        public List<Users> GetUser(string name, string tname)
+        [HttpGet]
+        public List<Users> GetUser()
         {
-            return bll.GetUser(name, tname);
+            return bll.GetUser();
         }
 
         
@@ -227,6 +227,27 @@ namespace ZXWebAPI.Controllers
         public int UptPwd(Users u)
         {
             return sal.UptPwd(u);
+        }
+
+
+        /// <summary>
+        /// 查询审核员
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public List<Users> GetShenSearch(Users u)
+        {
+            return bll.GetShenSearch(u);
+        }
+
+        /// <summary>
+        /// 查询客户
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public List<Users> GetUserSearch(Users u)
+        {
+            return bll.GetUserSearch(u);
         }
     }
 }
