@@ -77,5 +77,26 @@ namespace DAL
         {
             return DapperHelper.Query<ShenLevel>("select  * from slevel", null);
         }
+
+        /// <summary>
+        /// 找回密码时判断手机号和用户名是否匹配
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public int ComTelName(Users u)
+        {
+            return DapperHelper.Exists($"select count(1) from Users where Uname='{u.Uname}' and Utel='{u.Utel}'", null);
+        }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public int UptPwd(Users u)
+        {
+            string pwd = EncryptionHelper.Sha1(u.Upwd);//Sha1加密密码
+            return DapperHelper.NonQuery($"update Users set Upwd= '{pwd}' where Uname='{u.Uname}'", null);
+        }
     }
 }

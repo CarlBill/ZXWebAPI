@@ -65,5 +65,25 @@ namespace BLL
         {
             return SAndL.GetLevel();
         }
+
+        /// <summary>
+        /// 找回密码时判断手机号和用户名是否匹配
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public int ComTelName(Users u)
+        {
+            return SAndL.ComTelName(u);
+        }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        public int UptPwd(Users u)
+        {
+            return SAndL.UptPwd(u);
+        }
     }
 }

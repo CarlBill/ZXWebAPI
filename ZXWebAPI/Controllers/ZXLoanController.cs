@@ -205,5 +205,28 @@ namespace ZXWebAPI.Controllers
         {
             return sal.GetLevel();
         }
+
+        /// <summary>
+        /// 找回密码时判断手机号和用户名是否匹配
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int ComTelName(Users u)
+        {
+            return sal.ComTelName(u);
+        }
+
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="u"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int UptPwd(Users u)
+        {
+            return sal.UptPwd(u);
+        }
     }
 }
