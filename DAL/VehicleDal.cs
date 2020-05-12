@@ -69,5 +69,45 @@ namespace DAL
         {
             return DapperHelper.Query<UVehicleInfo>($"select * from VehicleInfo join Users on Uid = Cuid join RepayMent on Cid = Pcid  and Puid = Users.Uid join Brand on Bid = Cbrand join Type on Tid = Ctype where Cid ={ cid}", null).FirstOrDefault();
         }
+
+        /// <summary>
+        /// 根据品牌名和时间进行查询(我审核的申请)
+        /// </summary>
+        /// <param name="brangName"></param>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public List<UVehicleInfo> GetVehicleInfosByBrandOrTime(string name, string brangName = "", string time = "")
+        {
+            string sql = $"select *,SUBSTRING(CONVERT(CHAR(19), Ctime, 120),1,10)as newTime from VehicleInfo join Users on Uid=Cuid join RepayMent on Cid=Pcid  and Puid=Users.Uid join Brand on Bid=Cbrand join Type on Tid =Ctype where Uname = '{name}' and Czt = 2 ";
+            if (!string.IsNullOrWhiteSpace(brangName))
+            {
+                sql += $"and Bname like '%{brangName}%' ";
+            }
+            if (!string.IsNullOrWhiteSpace(time))
+            {
+                sql += $"and (select SUBSTRING(CONVERT(CHAR(19), Ctime, 120),1,10)) = '{time}'";
+            }
+            return DapperHelper.Query<UVehicleInfo>(sql, null);
+        }
+
+        /// <summary>
+        /// 根据品牌名和时间进行查询(待审核的申请)
+        /// </summary>
+        /// <param name="brangName"></param>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public List<UVehicleInfo> GetVehicleInfosByBrandNameOrTimes(string brangName = "", string time = "")
+        {
+            string sql = "select *,SUBSTRING(CONVERT(CHAR(19), Ctime, 120),1,10)as newTime from VehicleInfo join Users on Uid=Cuid join RepayMent on Cid=Pcid  and Puid=Users.Uid join Brand on Bid=Cbrand join Type on Tid =Ctype where Czt = 1 ";
+            if (!string.IsNullOrWhiteSpace(brangName))
+            {
+                sql += $"and Bname like '%{brangName}%' ";
+            }
+            if (!string.IsNullOrWhiteSpace(time))
+            {
+                sql += $"and (select SUBSTRING(CONVERT(CHAR(19), Ctime, 120),1,10)) = '{time}'";
+            }
+            return DapperHelper.Query<UVehicleInfo>(sql, null);
+        }
     }
 }

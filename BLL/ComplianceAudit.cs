@@ -8,9 +8,9 @@
         /// </summary>
         /// <param name="id">对应的用户id</param>
         /// <returns></returns>
-        public int UptState(int id)
+        public int UptState(int nuid, int ncid)
         {
-            return complianceAudit.UptState(id);
+            return complianceAudit.UptState(nuid, ncid);
         }
     }
 }

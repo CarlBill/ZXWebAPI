@@ -80,5 +80,29 @@ namespace ZXWebAPI.Controllers
         {
             return VehicleBll.GetVehicleInfoById(cid);
         }
+        [HttpGet]
+        /// <summary>
+        /// 根据品牌名和时间进行查询（我审核的申请）
+        /// </summary>
+        /// <param name="brangName"></param>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        public List<UVehicleInfo> GetVehicleInfosByBrandOrTime(string name, string brangName = "", string time = "")
+        {
+            return VehicleBll.GetVehicleInfosByBrandOrTime(name, brangName, time);
+        }
+
+        /// <summary>
+        /// 根据品牌名和时间进行查询(待审核的申请)
+        /// </summary>
+        /// <param name="brangName"></param>
+        /// <param name="time"></param>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public List<UVehicleInfo> GetVehicleInfosByBrandNameOrTimes(string brangName = "", string time = "")
+        {
+            return VehicleBll.GetVehicleInfosByBrandNameOrTimes(brangName, time);
+        }
     }
 }

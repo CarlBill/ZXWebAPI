@@ -15,10 +15,10 @@ namespace DAL
         /// </summary>
         /// <param name="id">对应的用户id</param>
         /// <returns></returns>
-        public int UptState(int id)
+        public int UptState(int nuid, int ncid)
         {
-            string sql = "update VehicleInfo set Czt = 2 where Cuid =" + id;
-            return DapperHelper.NonQuery(sql,null);
+            string sql = $"update VehicleInfo set Czt = 2 where Cuid ={nuid} and Cid = {ncid}";
+            return DapperHelper.NonQuery(sql, null);
         }
     }
 }
